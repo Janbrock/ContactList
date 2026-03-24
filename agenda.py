@@ -61,10 +61,25 @@ def imprimir_menu():
         3 - Adicionar contato
         4 - Editar contato
         5 - Excluir contato
+        6 - Exportar agenda
         0 - Fechar agenda 
           
         '''
     )
+
+def exportar_agenda():
+    try:
+        with open('agenda.csv', 'w') as arquivo:
+            arquivo.write('nome,telefone,email,endereco\n')
+            for contato in AGENDA:
+                telefone = AGENDA[contato]['telefone']
+                email = AGENDA[contato]['email']
+                endereco = AGENDA[contato]['endereco']
+                arquivo.write('{},{},{},{}\n'.format(contato, telefone, email, endereco))
+        print('>>>> Agenda exportada com sucesso')
+    except Exception as error:
+        print('>>> Algum erro ocorreu ao exportar contatos')
+        print(error)
 
 while True:
     imprimir_menu()
@@ -99,10 +114,11 @@ while True:
         except KeyError:
             print()
             print('>>>> Contato inexistente.')
-            
     elif opcao == '5': # excluir
         contato = input('Digite o nome do contato:')
         excluir_contato(contato)
+    elif opcao == '6': # exportar
+        exportar_agenda()
     elif opcao == '0': # fechar
         print('>>>> Fechando o programa...')
         break
