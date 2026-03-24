@@ -35,6 +35,38 @@ def excluir_contato(contato):
     AGENDA.pop(contato)
     print('>>>> Contato {} excluído com sucesso'.format(contato))
 
-mostrar_contatos()
-excluir_contato('Guilherme')
-mostrar_contatos()
+def imprimir_menu():
+    print('''
+        1 - Mostrar todos os contatos da agenda
+        2 - Buscar contato
+        3 - Adicionar contato
+        4 - Editar contato
+        5 - Excluir contato
+        0 - Fechar agenda 
+        '''
+    )
+
+imprimir_menu()
+
+# sempre que sai do INPUT sai como STRING
+opcao = input('Escolha uma opção:')
+
+if opcao == '1':
+     mostrar_contatos()
+elif opcao == '2':
+     contato = input('Digite o nome do contato:')
+     buscar_contato(contato)
+elif opcao == '3' or opcao == '4':
+     nome = input('Digite o nome:')
+     telefone = input('Digite o telefone:')
+     email = input('Digite o email:')
+     endereco = input('Digite o endereço:')
+     incluir_editar_contato(nome, telefone, email, endereco)
+elif opcao == '5':
+     contato = input('Digite o nome do contato:')
+     excluir_contato(contato)
+elif opcao == '0':
+     exit
+else:
+     print('Opção inválida.')
+
