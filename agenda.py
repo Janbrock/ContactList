@@ -23,14 +23,17 @@ def buscar_contato(contato):
         print('Email:', AGENDA[contato]['email'])
         print('Endereço:', AGENDA[contato]['endereco'])
 
-def incluir_contato(contato, telefone, email, endereco):
+def incluir_editar_contato(contato, telefone, email, endereco):
     AGENDA[contato] = {
     'telefone': telefone,
     'email': email,
     'endereco': endereco
     }
-    print('>>>> Contato {} adicionado com sucesso'.format(contato))
+    print('>>>> Contato {} adicionado/editado com sucesso'.format(contato))
+     
 
 mostrar_contatos()
-incluir_contato('Joana', '988887777', 'joana@python.com.br', 'Av. 3')
+incluir_editar_contato('Joana', '988887777', 'joana@python.com.br', 'Av. 3')
+incluir_editar_contato('Guilherme', '988886666', 'joana@python.com.br', 'Av. 3')
+incluir_editar_contato('José', '988885555', ' ', None)
 mostrar_contatos()
