@@ -31,9 +31,10 @@ def incluir_editar_contato(contato, telefone, email, endereco):
     }
     print('>>>> Contato {} adicionado/editado com sucesso'.format(contato))
      
+def excluir_contato(contato):
+    AGENDA.pop(contato)
+    print('>>>> Contato {} excluído com sucesso'.format(contato))
 
 mostrar_contatos()
-incluir_editar_contato('Joana', '988887777', 'joana@python.com.br', 'Av. 3')
-incluir_editar_contato('Guilherme', '988886666', 'joana@python.com.br', 'Av. 3')
-incluir_editar_contato('José', '988885555', ' ', None)
+excluir_contato('Guilherme')
 mostrar_contatos()
