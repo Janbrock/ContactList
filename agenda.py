@@ -18,15 +18,10 @@ AGENDA['maria'] = {
 # PASS = PASSA
 # CRIANDO MÉTODO PARA MOSTRAR CONTATOS
 
-def mostrar_contato():
+def mostrar_contatos():
     for contato in AGENDA:
-        print('Nome:', contato)
-        print('Telefone:', AGENDA[contato]['telefone'])
-        print('Email:', AGENDA[contato]['email'])
-        print('Endereço:', AGENDA[contato]['endereco'])
+        buscar_contato(contato)
         print('------------------')
-
-# mostrar_contato()
 
 def buscar_contato(contato):
         print('Nome:', contato)
@@ -34,4 +29,5 @@ def buscar_contato(contato):
         print('Email:', AGENDA[contato]['email'])
         print('Endereço:', AGENDA[contato]['endereco'])
 
-buscar_contato('maria')
+mostrar_contatos()
+# buscar_contato('maria')
